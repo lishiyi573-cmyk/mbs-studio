@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* 黑金风 · 与交付物视觉约定一致 */
+@theme {
+  --color-ink-bg: #0e0f11;
+  --color-ink-panel: #16181b;
+  --color-ink-line: #2a2e33;
+  --color-ink-gold: #c8a971;
+  --color-ink-text: #e8e6e3;
+  --color-ink-sub: #8a8f98;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--color-ink-bg);
+  color: var(--color-ink-text);
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2e33; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3f45; }
+
+@layer components {
+  .panel { @apply bg-[#16181b] border border-[#2a2e33] rounded-xl; }
+
+  /* 基础按钮样式（Tailwind v4 不允许 @apply 自定义类，故在各变体中展开） */
+  .btn-gold {
+    @apply px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer select-none
+           bg-[#c8a971] text-[#0e0f11] font-medium hover:bg-[#d8ba85];
+  }
+  .btn-ghost {
+    @apply px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer select-none
+           border border-[#2a2e33] text-[#e8e6e3] hover:bg-[#1e2126];
+  }
+  .btn-danger {
+    @apply px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer select-none
+           border border-red-900/60 text-red-400 hover:bg-red-950/40;
+  }
+  .inp {
+    @apply bg-[#0e0f11] border border-[#2a2e33] rounded-lg px-3 py-1.5 text-sm
+           text-[#e8e6e3] outline-none focus:border-[#c8a971]/60 w-full;
+  }
+  .tag { @apply inline-block px-2 py-0.5 rounded text-xs border; }
+  .tabbtn {
+    @apply px-4 py-2 text-sm cursor-pointer border-b-2 border-transparent
+           text-[#8a8f98] hover:text-[#e8e6e3];
+  }
+  .tabbtn-on { @apply border-b-2 border-[#c8a971] text-[#c8a971]; }
+}

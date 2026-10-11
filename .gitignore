@@ -1,0 +1,30 @@
+# ============================================================
+# 木作设计台 v5 · mbs-studio
+# ============================================================
+
+# ---- 依赖 ----
+node_modules/
+
+# ---- 构建产物（由 `npm run build` 生成，请勿手改）----
+web/dist/
+dist/
+
+# ---- 本地数据（含客户真实信息，不入库）----
+# 数据库与备份首次启动由 server/db/index.ts 自动创建（CREATE TABLE IF NOT EXISTS）
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/backups/
+data/files/
+
+# ---- 运行时 ----
+*.log
+npm-debug.log*
+.env
+.env.*
+
+# ---- 编辑器 / 系统 ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
