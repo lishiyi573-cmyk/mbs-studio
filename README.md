@@ -7,10 +7,17 @@
 
 ```bash
 npm install     # 首次
+npm run build   # 首次必须：构建前端（web/dist 不进仓库）
 npm start       # → http://127.0.0.1:7891
 ```
 
-Windows 直接双击 `启动.bat`。
+Windows 直接双击 `启动.bat`（**前提同样先跑过一次 `npm install` + `npm run build`**）。
+
+> ⚠️ **新克隆首次必读**
+> `web/dist`（前端构建产物）已被 `.gitignore` 排除，而 `启动.bat` 只负责起服务、
+> **不会自动构建**。`server/index.ts` 仅在 `web/dist` 存在时才挂载静态托管 ——
+> 缺了它，浏览器打开会 404（REST API 与 `/mcp` 仍可用，只是没有网页界面）。
+> 因此在新机器上第一次运行，务必先执行一次 `npm run build`。
 
 ## 能力
 
